@@ -1,4 +1,4 @@
-const triangle = {
+/*const triangle = {
     x : 0,
     y : 0,
     color: 'yellow',
@@ -44,19 +44,27 @@ ctx.lineWidth = 5;
 ctx.strokeStyle = 'black';
 ctx.stroke();
 }
-}
+}*/
 const square = {
-
- draw : function(){
+x : 600,
+y : 235,
+width : 55,
+height : 55,
+color: 'black',
+speedX : 0,
+draw : function(){
     const canvas = document.getElementById('canvas-stage');
     const ctx = canvas.getContext('2d');
     ctx.fillStyle = '#010D9A';
-    ctx.fillRect(900, 490, 55, 55);
+    ctx.fillRect(this.x, this.y, 55, 55);
     ctx.strokeStyle = 'black';
-    ctx.strokeRect(900, 490, 55, 55);
+    ctx.strokeRect(this.x, this.y, 55, 55);
+ },
+newPosition : function(){
+    this.x += this.speedX
  }
     
-}
+}/*
 const heart = {
     
 }
@@ -85,33 +93,33 @@ const trapezoid ={
             ctx.stroke();
 
         }
-}
+}*/
 
 const myGame ={
-    positionX:50,
-    positionY:40,
-    player1: triangle,
-    player2: circle,
-    player3: square,
-    player4: trapezoid,
+    positionX:10,
+    positionY:10,
+    player: null,
     frames: 0,
     obstacules:[],
     start: function(){
-        /*const canvas =document.getElementById('canvas-stage')
+        const canvas =document.getElementById('canvas-stage')
         const ctx = canvas.getContext('2d')
-        const imageAreaGame = new Image()
-        imageAreaGame.src = 'https://wallpaperaccess.com/full/1079103.jpg'
-        ctx.drawImage(imageAreaGame,this.positionX,this.positionY,canvas.width,canvas.height)*/
-        this.player1.draw()
-        this.player2.draw()
-        this.player3.draw()
-        this.player4.draw()
+        this.player = square
+        this.player.draw()
+        updateGame()
     },
     clear: function(){
-        clearRect(this.x,this.y,this.width,this.height)
+        const canvas = document.getElementById("canvas-stage");
+        const ctx = canvas.getContext("2d");
+        ctx.clearRect(10,10,1200,570)
     }
 }
 function startGame(){
     myGame.start()
+}
+function updateGame(){
+    myGame.clear();
+    myGame.player.newPosition();
+    myGame.player.draw();
 }
 

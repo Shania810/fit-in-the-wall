@@ -1,13 +1,18 @@
+
 document.addEventListener('keydown', (e) => {
     const key = e.code;
     switch (key) {
         case 'ArrowLeft':
-        myGameArea.player.speedX -= 1;
+        myGame.player.speedX -= 1;
         break;
         case 'ArrowRight':
-        myGameArea.player.speedX += 1;
+        myGame.player.speedX += 1;
         break;
     }
+    startGame();
+})
+document.addEventListener('keyup', () => {
+    myGame.player.speedX = 0;
 })
 window.onload = () => {
     document.getElementById('game-one').addEventListener('click',start) 
@@ -25,9 +30,10 @@ function start(){
     <script src="./scripts/index.js" defer ></script>
 </head>
 <body>
-    <div class="game-board" id="game-board1">
-    <canvas id="canvas-stage" width="1300" height="570"></canvas>
+    <div>
+    <canvas id="canvas-stage" width="1200" height="570"></canvas>
     </div>
 </body>`
-    startGame()
+startGame();
 }
+
