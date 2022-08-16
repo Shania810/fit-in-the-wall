@@ -1,4 +1,13 @@
-
+document.addEventListener('keydown',(e) =>{
+   /*  const key = e.code;
+    if(key === 'Space') {
+        myGame.clear()     
+        //myGame.changePlayer(triangle)
+        console.log('oi')
+        
+     }*/
+     
+    })
 document.addEventListener('keydown', (e) => {
     const key = e.code;
     switch (key) {
@@ -7,7 +16,7 @@ document.addEventListener('keydown', (e) => {
         break;
         case 'ArrowRight':
         myGame.player.speedX += 1;
-        break;
+        break; 
     }
     startGame();
 })
@@ -35,5 +44,8 @@ function start(){
     </div>
 </body>`
 startGame();
+}
+function clear (){
+    myGame.clear()
 }
 

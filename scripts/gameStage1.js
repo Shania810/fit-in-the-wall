@@ -1,7 +1,8 @@
-/*const triangle = {
-    x : 0,
-    y : 0,
+const triangle = {
+    x : 600,
+    y : 235,
     color: 'yellow',
+    speedX:0,
     draw: function() {
         const canvasElement = document.getElementById('canvas-stage');
         const context = canvasElement.getContext("2d");
@@ -23,6 +24,26 @@
         context.fill();
     }
 }
+const square = {
+    x : 600,
+    y : 235,
+    width : 55,
+    height : 55,
+    color: 'black',
+    speedX : 0,
+    draw : function(){
+        const canvas = document.getElementById('canvas-stage');
+        const ctx = canvas.getContext('2d');
+        ctx.fillStyle = '#010D9A';
+        ctx.fillRect(this.x, this.y, 55, 55);
+        ctx.strokeStyle = 'black';
+        ctx.strokeRect(this.x, this.y, 55, 55);
+     },
+    newPosition : function(){
+        this.x += this.speedX
+     }
+        
+    }
 
 const circle = {
 x:0,
@@ -44,27 +65,8 @@ ctx.lineWidth = 5;
 ctx.strokeStyle = 'black';
 ctx.stroke();
 }
-}*/
-const square = {
-x : 600,
-y : 235,
-width : 55,
-height : 55,
-color: 'black',
-speedX : 0,
-draw : function(){
-    const canvas = document.getElementById('canvas-stage');
-    const ctx = canvas.getContext('2d');
-    ctx.fillStyle = '#010D9A';
-    ctx.fillRect(this.x, this.y, 55, 55);
-    ctx.strokeStyle = 'black';
-    ctx.strokeRect(this.x, this.y, 55, 55);
- },
-newPosition : function(){
-    this.x += this.speedX
- }
-    
-}/*
+}
+
 const heart = {
     
 }
@@ -93,29 +95,32 @@ const trapezoid ={
             ctx.stroke();
 
         }
-}*/
+}
 
 const myGame ={
-    positionX:10,
-    positionY:10,
+    positionX:0,
+    positionY:0,
     player: null,
     frames: 0,
     obstacules:[],
+    changePlayer: function(form){
+      this.player = form
+    },
     start: function(){
         const canvas =document.getElementById('canvas-stage')
-        const ctx = canvas.getContext('2d')
-        this.player = square
+        const ctx = canvas.getContext('2d')       
         this.player.draw()
-        updateGame()
+        //updateGame()
     },
     clear: function(){
         const canvas = document.getElementById("canvas-stage");
         const ctx = canvas.getContext("2d");
-        ctx.clearRect(10,10,1200,570)
+        ctx.clearRect(0,0,1200,570)
     }
 }
 function startGame(){
-    myGame.start()
+    myGame.changePlayer(square)
+    myGame.start() 
 }
 function updateGame(){
     myGame.clear();
