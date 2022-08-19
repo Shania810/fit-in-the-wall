@@ -2,38 +2,26 @@ body{
  display: flex;
  align-items: center;
  justify-content: center;
- background-color: black;
- height: 550px;
+ width: 100%;
+ height:100%;
+}
+canvas{
+    border: 1px solid black;
 }
 a{
     text-decoration: none;
 }
 #background{
     background-image: url(https://i.pinimg.com/originals/56/ec/38/56ec38fb6b55339ef4d6007db2f6e76a.jpg);
-    background-color: black;
     background-repeat: no-repeat;
-    background-size: 1000px 500px;
-    width: 1000px;
-    height: 500px;
+    background-size: 1300px 600px;
+    width: 1600px;
+    height: 600px;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
 }
-    #background-level{
-    background-image: url(https://i.pinimg.com/564x/f0/a1/39/f0a139ed60d49dc7f65e6eb268d7c46d.jpg);
-    background-color: black;
-    background-repeat: no-repeat;
-    background-size: 1000px 500px;
-    width: 1000px;
-    height: 500px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-
-    }
-
 h1{
     color:white;
     font-size: 50px;

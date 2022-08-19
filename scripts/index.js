@@ -1,11 +1,8 @@
 document.addEventListener('keydown',(e) =>{
-   /*  const key = e.code;
-    if(key === 'Space') {
-        myGame.clear()     
-        //myGame.changePlayer(triangle)
-        console.log('oi')
-        
-     }*/
+    const key = e.code;
+    if(key === 'Space') { 
+        myGame.changePlayer()    
+     }
      
     })
 document.addEventListener('keydown', (e) => {
@@ -18,24 +15,23 @@ document.addEventListener('keydown', (e) => {
         myGame.player.speedX += 1;
         break; 
     }
-    startGame();
 })
 document.addEventListener('keyup', () => {
     myGame.player.speedX = 0;
 })
 window.onload = () => {
-    document.getElementById('game-one').addEventListener('click',start) 
+    document.getElementById('start-game').addEventListener('click',start) 
 }
 function start(){
-    document.getElementById('background-level').remove();
+    document.getElementById('background').remove();
     document.querySelector('html').innerHTML=`
     <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="styles/style-stage.css">
-    <title>Fit In The Wall - section one</title>
-    <script src="./scripts/gameStage1.js" defer></script>
+    <link rel="stylesheet" type="text/css" href="styles/style.css">
+    <title>Fit In The Wall - game</title>
+    <script src="./scripts/gameArea.js" defer></script>
     <script src="./scripts/index.js" defer ></script>
 </head>
 <body>
@@ -45,7 +41,3 @@ function start(){
 </body>`
 startGame();
 }
-function clear (){
-    myGame.clear()
-}
-
